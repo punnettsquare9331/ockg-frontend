@@ -50,7 +50,7 @@ def respond(
         if val[1]:
             messages.append({"role": "assistant", "content": val[1]})
     messages.append({"role": "user", "content": message})
-
+    kg_context = False
     # Handle Knowledge Graph Search
     if search_kg:
         graphql_data = fetch_graphql_data(message)  # Use user input as the prompt
@@ -109,4 +109,4 @@ demo = gr.ChatInterface(
 
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(share=True)
